@@ -7,29 +7,56 @@ public class CompanyEmployees {
         employeeBook.addNewEmployee("Aasf gd FD", 65_000, 1);
         employeeBook.addNewEmployee("First Idiot", 65_000, 2);
         employeeBook.addNewEmployee("Second Ivan", 45_000, 3);
-        employeeBook.addNewEmployee("Third Ivan", 65_000, 4);
+        employeeBook.addNewEmployee("Third Ivan", 65_000, 3);
         employeeBook.addNewEmployee("Forth Ivan", 65_000, 5);
-        employeeBook.addNewEmployee("Five Ivan", 145_000, 1);
+        employeeBook.addNewEmployee("Five Ivan", 145_000, 3);
         employeeBook.addNewEmployee("Sixth Ivan", 65_000, 2);
 
-        //Show all
-        employeeBook.showAllEmployees();
-
-        //Payments amount
-        System.out.printf("Monthly payments amount - %.2f\n", employeeBook.calculatePaymentsAmount());
+        //Show all full names
+//        employeeBook.showAllFullNames();
 
         //Employee with min salary
-        employeeBook.showEmployeeWithMinSalary();
+//        employeeBook.showEmployeeWithMinSalary();
 
         //Employee with max salary
-        employeeBook.showEmployeeWithMaxSalary();
+//        employeeBook.showEmployeeWithMaxSalary();
 
-        employeeBook.updateDept("Aasf gd FD", 5);
-        employeeBook.updateSalary("First Idiot", 73_000);
+        //Employee with min salary in dept
+//        employeeBook.showEmployeeWithMinSalaryInDept(3);
 
-        employeeBook.showAllEmployees();
-        System.out.println();
+        //Employee with max salary in dept
+//        employeeBook.showEmployeeWithMaxSalaryInDept(3);
 
-        employeeBook.showEmployeesByDept();
+        //Payments amount
+//        System.out.printf("Monthly payments amount - %.2f\n", employeeBook.calculatePaymentsAmount());
+
+        //Payments amount in dept
+//        int dept = 3;
+//        System.out.printf("Monthly payments amount in %d department - %.2f\n", dept, employeeBook.calculatePaymentsAmountInDept(dept));
+
+        //Average salary
+//        employeeBook.showAverageSalary();
+
+        //Average salary in dept
+//        int dept = 3;
+//        employeeBook.showAverageSalaryInDept(dept);
+
+        //Indexing salary
+//        employeeBook.indexSalary(10);
+
+        //Indexing salary in dept
+//        employeeBook.indexSalaryInDept(10, 3);
+
+        //Show employees in dept
+//        int dept = 3;
+//        employeeBook.showEmployeesInDept(dept);
+
+        //Salary many than target
+//        int target = 70_000;
+//        employeeBook.showEmployeesWhichSalaryMore(target);
+        //Low than target
+//        employeeBook.showEmployeesWhichSalaryLow(target);
+
+//        employeeBook.showAllEmployees();
     }
 }
