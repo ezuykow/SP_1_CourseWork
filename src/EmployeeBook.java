@@ -57,11 +57,40 @@ class EmployeeBook {
         }
     }
 
+    public void updateSalary(String fullName, double newSalary) {
+        Employee e = getEmployeeByFullName(fullName);
+        if (e != null) {
+            e.setSalary(newSalary);
+        } else {
+            throw new RuntimeException("Cant find this employee...");
+        }
+    }
+
+    public void updateDept(String fullName, int newDept) {
+        Employee e = getEmployeeByFullName(fullName);
+        if (e != null) {
+            e.setDept(newDept);
+        } else {
+            throw new RuntimeException("Cant find this employee...");
+        }
+    }
+
+    private Employee getEmployeeByFullName(String fullName) {
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getFullName().equals(fullName)) {
+                    return employee;
+                }
+            }
+        }
+
+        return null;
+    }
+
     public void showAllEmployees() {
         for (Employee employee : employees) {
             if (employee != null) {
-                System.out.printf("%d %s %.2f %d\n", employee.getId(), employee.getFullName(), employee.getSalary(),
-                        employee.getDept());
+                System.out.println(employee);
             }
         }
     }

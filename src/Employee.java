@@ -36,4 +36,9 @@ class Employee {
     public void setDept(int dept) {
         this.dept = dept;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%d) %s, salary - %.2f, department - %d", id, fullName, salary, dept);
+    }
 }

@@ -9,5 +9,10 @@ public class CompanyEmployees {
         employeeBook.addNewEmployee("Second Ivan", 65_000, 3);
 
         employeeBook.showAllEmployees();
+
+        employeeBook.updateDept("Aasf gd FD", 5);
+        employeeBook.updateSalary("First Idiot", 73_000);
+
+        employeeBook.showAllEmployees();
     }
 }
