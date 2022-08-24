@@ -87,6 +87,23 @@ class EmployeeBook {
         return null;
     }
 
+    public void showEmployeesByDept() {
+        for (int i = 1; i < 5; i++) {
+            showEmployeesByDept(i);
+        }
+    }
+
+    public void showEmployeesByDept(int dept) {
+        System.out.println("Employees of the " + dept + " department:");
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getDept() == dept) {
+                    System.out.println(employee.getFullName());
+                }
+            }
+        }
+    }
+
     public void showAllEmployees() {
         for (Employee employee : employees) {
             if (employee != null) {

@@ -4,9 +4,13 @@ public class CompanyEmployees {
 
         var employeeBook = new EmployeeBook(maxEmployeesCount);
 
-        employeeBook.addNewEmployee("Aasf gd FD", 65_000, 3);
-        employeeBook.addNewEmployee("First Idiot", 65_000, 3);
+        employeeBook.addNewEmployee("Aasf gd FD", 65_000, 1);
+        employeeBook.addNewEmployee("First Idiot", 65_000, 2);
         employeeBook.addNewEmployee("Second Ivan", 65_000, 3);
+        employeeBook.addNewEmployee("Third Ivan", 65_000, 4);
+        employeeBook.addNewEmployee("Forth Ivan", 65_000, 5);
+        employeeBook.addNewEmployee("Five Ivan", 65_000, 1);
+        employeeBook.addNewEmployee("Sixth Ivan", 65_000, 2);
 
         employeeBook.showAllEmployees();
 
@@ -14,5 +18,8 @@ public class CompanyEmployees {
         employeeBook.updateSalary("First Idiot", 73_000);
 
         employeeBook.showAllEmployees();
+        System.out.println();
+
+        employeeBook.showEmployeesByDept();
     }
 }
