@@ -104,6 +104,52 @@ class EmployeeBook {
         }
     }
 
+    public double calculatePaymentsAmount() {
+        double sum = 0;
+
+        for (Employee employee : employees) {
+            if (employee != null) {
+                sum += employee.getSalary();
+            }
+        }
+
+        return sum;
+    }
+
+    public void showEmployeeWithMinSalary() {
+        System.out.println("Minimum salary has:");
+        System.out.println(findEmployeeWithMaxOrMinSalary(false));
+    }
+
+    public void showEmployeeWithMaxSalary() {
+        System.out.println("Maximum salary has:");
+        System.out.println(findEmployeeWithMaxOrMinSalary(true));
+    }
+
+    private Employee findEmployeeWithMaxOrMinSalary(boolean max) {
+        Employee current = null;
+
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (current == null) {
+                    current = employee;
+                } else {
+                    if (max) {
+                        if (current.getSalary() < employee.getSalary()) {
+                            current = employee;
+                        }
+                    } else {
+                        if (current.getSalary() > employee.getSalary()) {
+                            current = employee;
+                        }
+                    }
+                }
+            }
+        }
+
+        return current;
+    }
+
     public void showAllEmployees() {
         for (Employee employee : employees) {
             if (employee != null) {
