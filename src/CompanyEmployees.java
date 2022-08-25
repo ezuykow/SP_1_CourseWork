@@ -1,63 +1,85 @@
 public class CompanyEmployees {
     public static void main(String[] args) {
+        //Creating EmployeeBook
         int maxEmployeesCount = 10;
-
         var employeeBook = new EmployeeBook(maxEmployeesCount);
 
-        employeeBook.addNewEmployee("Aasf gd FD", 65_000, 1);
-        employeeBook.addNewEmployee("First Idiot", 65_000, 2);
-        employeeBook.addNewEmployee("Second Ivan", 45_000, 3);
-        employeeBook.addNewEmployee("Third Ivan", 65_000, 3);
-        employeeBook.addNewEmployee("Forth Ivan", 65_000, 5);
-        employeeBook.addNewEmployee("Five Ivan", 145_000, 3);
-        employeeBook.addNewEmployee("Sixth Ivan", 65_000, 2);
+        //Adding a new employees
+        employeeBook.addNewEmployee("Ivanov Ivan Ivanovich", 165_000, 1);
+        employeeBook.addNewEmployee("Smirnov Petr Sergeevich", 135_000, 2);
+        employeeBook.addNewEmployee("Skorobogatov Evgeniy Sergeevich", 45_000, 3);
+        employeeBook.addNewEmployee("King Kong Monkeyevich", 65_000, 4);
+        employeeBook.addNewEmployee("Cezar Yuly Georgievich", 95_000, 5);
+        employeeBook.addNewEmployee("Kukushka Fillip Egorovich", 145_000, 3);
+        employeeBook.addNewEmployee("Krug Mikhail Sergeevich", 65_000, 2);
 
+        /*Show:*/
+//        employeeBook.showAllEmployees();
 
-        //Show all full names
+        /*Delete employee:*/
+//        String targetName = "Smirnov Petr Sergeevich";
+//        int targetId = 3; //(Skorobogatov)
+//        employeeBook.removeEmployee(targetName);
+//        employeeBook.removeEmployee(targetId);
+        /*Show:*/
+//        employeeBook.showAllEmployees();
+
+        /*Update employee:*/
+//        String targetName = "Smirnov Petr Sergeevich";
+//        double newSalary = 734_000.00;
+//        int newDept = 1;
+//        employeeBook.updateSalary(targetName, newSalary);
+//        employeeBook.updateDept(targetName, newDept);
+        /*Show:*/
+//        employeeBook.showAllEmployees();
+
+        /*Monthly payments amount:*/
+//        double paymentsAmount = employeeBook.calculatePaymentsAmount();
+        /*In department:*/
+//        int targetDept = 2;
+//        double paymentsAmountInDept = employeeBook.calculatePaymentsAmountInDept(targetDept);
+//        System.out.println("paymentsAmount = " + paymentsAmount);
+//        System.out.println("paymentsAmountInDept = " + paymentsAmountInDept);
+
+        /*Employees with min/max salary:*/
+//        employeeBook.showEmployeeWithMinSalary();
+//        employeeBook.showEmployeeWithMaxSalary();
+        /*In department:*/
+//        int targetDept = 2;
+//        employeeBook.showEmployeeWithMinSalaryInDept(targetDept);
+//        employeeBook.showEmployeeWithMaxSalaryInDept(targetDept);
+
+        /*Averge salary:*/
+//        employeeBook.showAverageSalary();
+        /*In department*/
+//        int targetDept = 2;
+//        employeeBook.showAverageSalaryInDept(targetDept);
+
+        /*Show full names of employees:*/
 //        employeeBook.showAllFullNames();
 
-        //Employee with min salary
-//        employeeBook.showEmployeeWithMinSalary();
+        /*Show full names of employees by department:*/
+//        employeeBook.showEmployeesByDept();
 
-        //Employee with max salary
-//        employeeBook.showEmployeeWithMaxSalary();
+        /*Indexing salary:*/
+//        int percent = 10;
+//        employeeBook.indexSalary(percent);
+        /*Show:*/
+//        employeeBook.showAllEmployees();
+        /*In department:*/
+//        int percent = 10;
+//        int targetDept = 2;
+//        employeeBook.indexSalaryInDept(percent, targetDept);
+        /*Show:*/
+//        employeeBook.showEmployeesInDept(targetDept);
 
-        //Employee with min salary in dept
-//        employeeBook.showEmployeeWithMinSalaryInDept(3);
+        /*Show employees of target department:*/
+//        int targetDept = 2;
+//        employeeBook.showEmployeesInDept(targetDept);
 
-        //Employee with max salary in dept
-//        employeeBook.showEmployeeWithMaxSalaryInDept(3);
-
-        //Payments amount
-//        System.out.printf("Monthly payments amount - %.2f\n", employeeBook.calculatePaymentsAmount());
-
-        //Payments amount in dept
-//        int dept = 3;
-//        System.out.printf("Monthly payments amount in %d department - %.2f\n", dept, employeeBook.calculatePaymentsAmountInDept(dept));
-
-        //Average salary
-//        employeeBook.showAverageSalary();
-
-        //Average salary in dept
-//        int dept = 3;
-//        employeeBook.showAverageSalaryInDept(dept);
-
-        //Indexing salary
-//        employeeBook.indexSalary(10);
-
-        //Indexing salary in dept
-//        employeeBook.indexSalaryInDept(10, 3);
-
-        //Show employees in dept
-//        int dept = 3;
-//        employeeBook.showEmployeesInDept(dept);
-
-        //Salary many than target
+        /*Show employees with salary that more/low than target:*/
 //        int target = 70_000;
 //        employeeBook.showEmployeesWhichSalaryMore(target);
-        //Low than target
 //        employeeBook.showEmployeesWhichSalaryLow(target);
-
-//        employeeBook.showAllEmployees();
     }
 }
