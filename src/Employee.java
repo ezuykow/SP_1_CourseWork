@@ -44,6 +44,10 @@ class Employee {
         this.dept = dept;
     }
 
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     @Override
     public String toString() {
         return String.format("%d) %s, salary - %.2f, department - %d", id, fullName, salary, dept);

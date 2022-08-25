@@ -12,6 +12,7 @@ public class CompanyEmployees {
         employeeBook.addNewEmployee("Five Ivan", 145_000, 3);
         employeeBook.addNewEmployee("Sixth Ivan", 65_000, 2);
 
+
         //Show all full names
 //        employeeBook.showAllFullNames();
 
