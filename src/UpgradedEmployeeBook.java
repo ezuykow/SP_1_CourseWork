@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpgradedEmployeeBook {
+class UpgradedEmployeeBook extends SuperEmloyeeBook{
     private List<Employee> employees;
 
     public UpgradedEmployeeBook() {
@@ -12,12 +12,6 @@ public class UpgradedEmployeeBook {
         employees.add(new Employee(fullName, salary, dept));
     }
 
-    public void showAllEmployees() {
-        for (Employee employee : employees) {
-            System.out.println(employee);
-        }
-    }
-
     public void removeEmployee(String fullName) {
         remove(getEmployeeByFullName(fullName));
     }
@@ -26,30 +20,22 @@ public class UpgradedEmployeeBook {
         remove(getEmployeeById(id));
     }
 
-    public void updateSalary(String fullName, double newSalary) {
-        Employee target = getEmployeeByFullName(fullName);
-
-        if (target == null) {
-            throw new RuntimeException("Cant find this employee...");
-        } else {
-            target.setSalary(newSalary);
+    public Employee getEmployeeByFullName(String fullName) {
+        for (Employee employee : employees) {
+            if (employee.getFullName().equals(fullName)) {
+                return employee;
+            }
         }
+        return null;
     }
 
-    public void updateDept(String fullName, int newDept) {
-        Employee target = getEmployeeByFullName(fullName);
-
-        if (target == null) {
-            throw new RuntimeException("Cant find this employee...");
-        } else {
-            target.setDept(newDept);
+    public Employee getEmployeeById(int id) {
+        for (Employee employee : employees) {
+            if (employee.getId() == id) {
+                return employee;
+            }
         }
-    }
-
-    public void showEmployeesByDept() {
-        for (int i = 1; i <= 5 ; i++) {
-            showEmployeesByDept(i);
-        }
+        return null;
     }
 
     public void showEmployeesByDept(int dept) {
@@ -61,8 +47,10 @@ public class UpgradedEmployeeBook {
         }
     }
 
-    public double calculatePaymentsAmount() {
-        return calculatePaymentsAmountInDept(-1);
+    public void showAllEmployees() {
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
     }
 
     public double calculatePaymentsAmountInDept(int dept) {
@@ -77,16 +65,16 @@ public class UpgradedEmployeeBook {
         return sum;
     }
 
-    public void showAverageSalary() {
-        System.out.printf("Average salary: %.2f\n", calculatePaymentsAmount()/employeesInDept(-1));
-    }
+    public int employeesInDept(int dept) {
+        int count = 0;
 
-    public void showAverageSalaryInDept(int dept) {
-        System.out.printf("Average salary in %d department: %.2f\n", dept, calculatePaymentsAmountInDept(dept)/employeesInDept(dept));
-    }
+        for (Employee employee : employees) {
+            if ((employee.getDept() == dept) || (dept == -1)) {
+                count++;
+            }
+        }
 
-    public void indexSalary(double percents) {
-        indexSalaryInDept(percents, -1);
+        return count;
     }
 
     public void indexSalaryInDept(double percents, int dept) {
@@ -94,6 +82,22 @@ public class UpgradedEmployeeBook {
             if ((employee.getDept() == dept) || (dept == -1)) {
                 employee.setSalary(employee.getSalary() * (100+percents)/100);
             }
+        }
+    }
+
+    public Employee findEmployeeWithMaxOrMinSalaryInDept(boolean max, int dept) {
+        Employee current = null;
+
+        for (Employee employee : employees) {
+            current = checkMinOrMaxSalaryOfTwoEmployees(max, dept, current, employee);
+        }
+
+        return current;
+    }
+
+    public void showEmployeesWhichSalaryMoreOrLow(boolean more, double target) {
+        for (Employee employee : employees) {
+            showEmployeeIfSalaryMoreOrNot(more, target, employee);
         }
     }
 
@@ -106,115 +110,21 @@ public class UpgradedEmployeeBook {
         }
     }
 
-    public void showEmployeeWithMinSalary() {
-        System.out.println("Minimum salary has:");
-        System.out.println(findEmployeeWithMaxOrMinSalaryInDept(false, -1));
-    }
-
-    public void showEmployeeWithMaxSalary() {
-        System.out.println("Maximum salary has:");
-        System.out.println(findEmployeeWithMaxOrMinSalaryInDept(true, -1));
-    }
-
-    public void showEmployeeWithMinSalaryInDept(int dept) {
-        System.out.println("Minimum salary in " + dept + " department has:");
-        System.out.println(findEmployeeWithMaxOrMinSalaryInDept(false, dept));
-    }
-
-    public void showEmployeeWithMaxSalaryInDept(int dept) {
-        System.out.println("Maximum salary in " + dept + " department has:");
-        System.out.println(findEmployeeWithMaxOrMinSalaryInDept(true, dept));
-    }
-
-    public void showEmployeesWhichSalaryMore(double target) {
-        System.out.println("Employees with salary more than " + target + ":");
-        showEmployeesWhichSalaryMoreOrLow(true, target);
-    }
-
-    public void showEmployeesWhichSalaryLow(double target) {
-        System.out.println("Employees with salary low than " + target + ":");
-        showEmployeesWhichSalaryMoreOrLow(false, target);
-    }
-
     public void showAllFullNames() {
         for (Employee employee : employees) {
             System.out.println(employee.getFullName());
         }
     }
 
-    private void showEmployeesWhichSalaryMoreOrLow(boolean more, double target) {
-        for (Employee employee : employees) {
-            if (more) {
-                if (employee.getSalary() >= target) {
-                    System.out.println(employee);
-                }
-            } else {
-                if (employee.getSalary() < target) {
-                    System.out.println(employee);
-                }
-            }
-        }
-    }
-
-    private Employee findEmployeeWithMaxOrMinSalaryInDept(boolean max, int dept) {
-        Employee target = null;
-
-        for (Employee employee : employees) {
-            if ((employee.getDept() == dept) || (dept == -1)) {
-                if (target == null) {
-                    target = employee;
-                } else {
-                    if (max) {
-                        if (target.getSalary() < employee.getSalary()) {
-                            target = employee;
-                        }
-                    } else {
-                        if (target.getSalary() > employee.getSalary()) {
-                            target = employee;
-                        }
-                    }
-                }
-            }
-        }
-
-        return target;
-    }
-
+    /**
+     * remove target employee if it is not null, else throw exception "Cant find this employee..."
+     * @param target target employee
+     */
     private void remove(Employee target) {
         if (target == null) {
             throw new RuntimeException("Cant find this employee...");
         } else {
             employees.remove(target);
         }
-    }
-
-    private int employeesInDept(int dept) {
-        int count = 0;
-
-        for (Employee employee : employees) {
-            if ((employee.getDept() == dept) || (dept == -1)) {
-                count++;
-            }
-        }
-
-        return count;
-    }
-
-    private Employee getEmployeeByFullName(String fullName) {
-        for (Employee employee : employees) {
-            if (employee.getFullName().equals(fullName)) {
-                return employee;
-            }
-        }
-        return null;
-    }
-
-    private Employee getEmployeeById(int id) {
-        for (Employee employee : employees) {
-            if (employee.getId() == id) {
-                return employee;
-            }
-        }
-        return null;
     }
 }
