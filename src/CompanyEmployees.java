@@ -1,8 +1,11 @@
 public class CompanyEmployees {
     public static void main(String[] args) {
-        //Creating EmployeeBook
-        int maxEmployeesCount = 10;
-        var employeeBook = new EmployeeBook(maxEmployeesCount);
+        /*Creating employeeBook using EmployeeBook*/
+//        int maxEmployeesCount = 10;
+//        var employeeBook = new EmployeeBook(maxEmployeesCount);
+
+        /*Creating employeeBook using UpgradedEmployeeBook*/
+        var employeeBook = new UpgradedEmployeeBook();
 
         //Adding a new employees
         employeeBook.addNewEmployee("Ivanov Ivan Ivanovich", 165_000, 1);
@@ -14,7 +17,7 @@ public class CompanyEmployees {
         employeeBook.addNewEmployee("Krug Mikhail Sergeevich", 65_000, 2);
 
         /*Show:*/
-//        employeeBook.showAllEmployees();
+        employeeBook.showAllEmployees();
 
         /*Delete employee:*/
 //        String targetName = "Smirnov Petr Sergeevich";

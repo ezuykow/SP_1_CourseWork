@@ -109,6 +109,7 @@ class EmployeeBook {
         }
     }
 
+
     /**
      * @return Employee with target full name OR null if there is no employee with target full name
      * @param fullName target full name
@@ -121,7 +122,21 @@ class EmployeeBook {
                 }
             }
         }
+        return null;
+    }
 
+    /**
+     * @return Employee with target id OR null if there is no employee with target id
+     * @param id target id
+     */
+    private Employee getEmployeeById(int id) {
+        for (Employee employee : employees) {
+            if (employee != null) {
+                if (employee.getId() == id) {
+                    return employee;
+                }
+            }
+        }
         return null;
     }
 
