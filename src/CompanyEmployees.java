@@ -7,7 +7,7 @@ public class CompanyEmployees {
         /*Creating employeeBook using UpgradedEmployeeBook*/
         var employeeBook = new UpgradedEmployeeBook();
 
-        //Adding a new employees
+        /*Adding employees in book*/
         employeeBook.addNewEmployee("Ivanov Ivan Ivanovich", 165_000, 1);
         employeeBook.addNewEmployee("Smirnov Petr Sergeevich", 135_000, 2);
         employeeBook.addNewEmployee("Skorobogatov Evgeniy Sergeevich", 45_000, 3);
@@ -16,15 +16,13 @@ public class CompanyEmployees {
         employeeBook.addNewEmployee("Kukushka Fillip Egorovich", 145_000, 3);
         employeeBook.addNewEmployee("Krug Mikhail Sergeevich", 65_000, 2);
 
-        /*Show:*/
         employeeBook.showAllEmployees();
 
-        /*Delete employee:*/
+        /*Remove employee:*/
 //        String targetName = "Smirnov Petr Sergeevich";
 //        int targetId = 3; //(Skorobogatov)
 //        employeeBook.removeEmployee(targetName);
 //        employeeBook.removeEmployee(targetId);
-        /*Show:*/
 //        employeeBook.showAllEmployees();
 
         /*Update employee:*/
